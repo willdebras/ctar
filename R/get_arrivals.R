@@ -8,7 +8,7 @@
 #' @export
 #'
 #' @examples
-get_arrivals <- function(route = NULL, station = NULL, key = ctar_api_key) {
+get_arrivals <- function(route = NULL, station = NULL, stop = NULL, key = ctar_api_key) {
   require(httr)
   require(rlang)
 
@@ -30,7 +30,7 @@ get_arrivals <- function(route = NULL, station = NULL, key = ctar_api_key) {
 
   }
 
-  url <- paste0("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx", "?key=", key, "&rt=", route, "&stpid=", station, "&outputType=JSON")
+  url <- paste0("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx", "?key=", key, "&rt=", route, "&stpid=", stop, "&mapid=", station, "&outputType=JSON")
 
   raw <- GET(url)
 
@@ -49,7 +49,7 @@ get_arrivals <- function(route = NULL, station = NULL, key = ctar_api_key) {
     if (is.null(parsed$ctatt$errNm)) {
 
       stop(
-        paste0("No trains found for specified line and station combination"),
+        paste0("No trains found for specified line, stop, and station station combination"),
         call. = FALSE
 
       )
