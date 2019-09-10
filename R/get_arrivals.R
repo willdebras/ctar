@@ -1,5 +1,7 @@
 #' get_arrivals
 #'
+#' Function to query data from the CTA arrivals API. The function can give all estimated arrival times by simply calling `get_arrivals()` or limited estimations by station, route, or a combination of both.
+#'
 #' @param route The route or "line" for which you want data. Options are red, blue, brown, pink, green, orange, purple, or yellow. This parameter will match the argument to one of these lines.
 #' @param station The station, or parent stop, ID. These uniquely identify a station. Call `stop_ids()` for reference
 #' @param stop The stop ID. These uniquely identify a station and directiion. Call `stop_ids()` for reference

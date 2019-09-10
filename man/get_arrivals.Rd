@@ -20,7 +20,7 @@ get_arrivals(route = NULL, station = NULL, stop = NULL,
 returns a dataframe of locations, estimated arrivals, and reference data.
 }
 \description{
-get_arrivals
+Function to query data from the CTA arrivals API. The function can give all estimated arrival times by simply calling `get_arrivals()` or limited estimations by station, route, or a combination of both.
 }
 \examples{
 get_arrivals(route = "pink", stop = 30132, key = ctar_api_key)

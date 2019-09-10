@@ -15,7 +15,7 @@ get_locations(route = NULL, key = ctar_api_key)
 returns a dataframe of locations data associated with the route/line specified
 }
 \description{
-get_locations
+Function to query data from the CTA locations API. The function can provide a list of all trains and their locations and attributes by calling `get_locations()` or limited estimations by route/line.
 }
 \examples{
 get_locations(route = "red", key = ctar_api_key)

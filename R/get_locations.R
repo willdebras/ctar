@@ -1,5 +1,7 @@
 #' get_locations
 #'
+#' Function to query data from the CTA locations API. The function can provide a list of all trains and their locations and attributes by calling `get_locations()` or limited estimations by route/line.
+#'
 #' @param route The route or "line" for which you want data. Options are red, blue, brown, pink, green, orange, purple, or yellow. This parameter will match the argument to one of these lines.
 #' @param key The Chicago Transit Authority developer API key either entered as a string or saved to the environment object `ctar_api_key`
 #'

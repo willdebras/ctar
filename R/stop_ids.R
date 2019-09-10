@@ -1,4 +1,4 @@
-#' Stop IDs dataset
+#' ctar stop IDs dataset
 #'
 #' A dataset containing stop IDs and parent/station IDs associated with each CTA train station
 #'

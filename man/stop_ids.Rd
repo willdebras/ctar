@@ -3,7 +3,7 @@
 \docType{data}
 \name{stop_ids}
 \alias{stop_ids}
-\title{Stop IDs dataset}
+\title{ctar stop IDs dataset}
 \format{A data frame with 301 rows and 22 variables:
 \describe{
   \item{STOP_ID}{Unique identifier of station and direction}
