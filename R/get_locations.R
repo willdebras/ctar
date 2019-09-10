@@ -39,7 +39,7 @@ get_locations <- function(route = NULL, key = ctar_api_key) {
 
 
   if (http_type(raw) != "application/json") {
-    stop("API did not return json", call. = FALSE)
+    stop("Help I'm stuck in a JSON factory: API did not return json", call. = FALSE)
   }
 
 
