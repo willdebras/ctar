@@ -10,8 +10,7 @@
 #'
 #' @examples get_locations(route = "red", key = ctar_api_key)
 get_locations <- function(route = NULL, key = ctar_api_key) {
-  require(httr)
-  require(rlang)
+
 
   if (!is.null(route)) {
 
