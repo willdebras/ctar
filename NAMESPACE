@@ -2,6 +2,8 @@
 
 export(get_arrivals)
 export(get_locations)
+export(get_train)
+export(get_train_position)
 importFrom(httr,GET)
 importFrom(httr,http_type)
 importFrom(jsonlite,fromJSON)
