@@ -53,7 +53,7 @@ get_arrivals <- function(route = NULL, station = NULL, stop = NULL, key = ctar_a
     if (is.null(parsed$ctatt$errNm)) {
 
       stop(
-        paste0("No trains found for specified line, stop, and station station combination"),
+        paste0("No trains found for specified line, stop, and station combination"),
         call. = FALSE
 
       )
