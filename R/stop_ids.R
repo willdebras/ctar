@@ -1,6 +1,7 @@
 #' ctar stop IDs dataset
 #'
-#' A dataset containing stop IDs and parent/station IDs associated with each CTA train station
+#' A dataset containing stop IDs and parent/station IDs associated with each CTA train station.
+#' Call the dataset with `data(stop_ids)`
 #'
 #'
 #' @format A data frame with 301 rows and 22 variables:
