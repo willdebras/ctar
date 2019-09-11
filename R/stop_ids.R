@@ -12,7 +12,7 @@
 #'   \item{STATION_DESCRIPTIVE_NAME}{Station name with appended description of the route/line}
 #'   \item{STATION_ID}{Unique identifier for each station, also known as "parent ID" or "parent station ID"}
 #'   \item{ADA}{Binary variable identifying if the station is accessible to riders with disabilities}
-#'   /item{Location}{Latitude and longitude of the station}
+#'   \item{Location}{Latitude and longitude of the station}
 #'   ...
 #' }
 #' @source \url{https://data.cityofchicago.org/Transportation/CTA-System-Information-List-of-L-Stops/8pix-ypme}
