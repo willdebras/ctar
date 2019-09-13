@@ -1,0 +1,35 @@
+---
+output: github_document
+---
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# ctar
+
+The goal of ctar is to ...
+
+## Installation
+
+You can install the released version of ctar from [Github](https://github.com/willdebras/ctar) with:
+
+``` r
+library(remotes)
+install_github("willdebras/ctar")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+library(ctar)
+```
+
+
