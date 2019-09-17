@@ -9,7 +9,7 @@
 #' @param key The Chicago Transit Authority developer API key either entered as a string or saved to the environment object `ctar_api_key`
 #'
 #'
-#' @importFrom httr GET http_type
+#' @importFrom httr GET http_type content
 #' @importFrom jsonlite fromJSON
 #'
 #' @return Returns a table of the longitude and latitude of a single train.

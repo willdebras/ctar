@@ -8,7 +8,7 @@
 #' @param run_number This is a run number associated with a single train. These change daily. `get_arrivals()` or `get_locations()` will provide info on run number.
 #' @param key The Chicago Transit Authority developer API key either entered as a string or saved to the environment object `ctar_api_key`
 #'
-#' @importFrom httr GET http_type
+#' @importFrom httr GET http_type content
 #' @importFrom jsonlite fromJSON
 #'
 #' @return Returns a dataframe of future positions and arrival times for a single train.

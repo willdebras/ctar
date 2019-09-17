@@ -9,7 +9,7 @@
 #'
 #' @return returns a dataframe of locations, estimated arrivals, and reference data.
 #' @export
-#' @importFrom httr GET http_type
+#' @importFrom httr GET http_type content
 #' @importFrom jsonlite fromJSON
 #'
 #' @examples get_arrivals(route = "pink", stop = 30132, key = ctar_api_key)
