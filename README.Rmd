@@ -10,26 +10,74 @@ knitr::opts_chunk$set(
   fig.path = "man/figures/README-",
   out.width = "100%"
 )
+
+library(knitr)
 ```
 # ctar
 
-The goal of ctar is to ...
+{ctar} is an R package designed to interface with the Chicago Transit Authority train tracker API. In order to use this R package you will need to apply for a key. Applications for an API key can be found on the [CTA website](https://www.transitchicago.com/developers/traintrackerapply/). 
+
+CTA train tracker offers three APIs, the arrivals API, the locations API, and the Follow This Train API. This package has functions to interface with each of the three APIs.
 
 ## Installation
 
 You can install the released version of ctar from [Github](https://github.com/willdebras/ctar) with:
 
-``` r
+``` {r, echo = TRUE, eval = FALSE}
 library(remotes)
 install_github("willdebras/ctar")
 ```
 
-## Example
+## API keys
 
-This is a basic example which shows you how to solve a common problem:
+The functions for each of the three APIs have a `key` argument that defaults to an object called `ctar_api_key`. We can use the function argument to manually include the key, such as:
 
-```{r example}
-library(ctar)
+`get_arrivals(route = "red", key = xxxxxxxxxxxxx)`
+
+Alternatively, we can assign the key to an object called `ctar_api_key` and leave the `key` argument blank, such as:
+
+`ctar_api_key <- xxxxxxxxxxxxx`
+
+The best method to store this key though is probably to set it to an environment variable and call it later, such as:
+
+```{r api, eval = FALSE}
+
+Sys.setenv(ctar_api_key="xxxxxxxxxxxxx")
+
+get_arrivals(route = "red", key = Sys.getenv("ctar_api_key"))
+
 ```
 
+## Arrivals API
 
+The arrivals API produces a list of arrival predictions for all platforms at a given train station. The arrivals takes a single argument of either a map id (a station) or a stop id (a station and direction combination).
+
+We can reference these stop and station ids with the stop_ids dataset. 
+
+```{r test}
+library(ctar)
+data("stop_ids")
+
+kable(head(stop_ids[1:6]))
+
+```
+
+Now we can get some basic data about arrivals with the `get_arrivals()` function. 
+
+```{r example, cache = TRUE}
+
+arrivals_18th <- get_arrivals <- get_arrivals(route = "pink", stop = 30162, key = Sys.getenv("ctar_api_key"))
+
+kable(head(arrivals_18th))
+
+```
+
+With this function, the route is optional. For stations with multiple routes, we can request data from all of the routes. For example, let's use the station argument for the State/Lake stop so we get data from both directions and let's call it without a route so we get data from all lines. 
+
+```{r lake, cache = TRUE}
+
+arrivals_lake <- get_arrivals <- get_arrivals(station = 40260, key = Sys.getenv("ctar_api_key"))
+
+kable(head(arrivals_lake))
+
+```
