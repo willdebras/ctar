@@ -36,9 +36,9 @@ get_arrivals <- function(route = NULL, station = NULL, stop = NULL, key = ctar_a
 
   url <- paste0("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx", "?key=", key, "&rt=", route, "&stpid=", stop, "&mapid=", station, "&outputType=JSON")
 
-  raw <- GET(url)
+  raw <- httr::GET(url)
 
-  if (http_type(raw) != "application/json") {
+  if (httr::http_type(raw) != "application/json") {
     stop("JSON machine broke: API did not return json", call. = FALSE)
   }
 
