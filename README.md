@@ -180,7 +180,9 @@ kable(head(run_104_position))
 | :------- | :--------- | :------ |
 | 41.87401 | \-87.71586 | 269     |
 
-## Additional features
+## Additional features and info
+
+### stop\_ids dataset
 
 The {ctar} package features a lot of additional data about individual
 stops found in the `stop_ids` dataset. A general explanation of the
@@ -189,3 +191,25 @@ the main variables, the dataset contains the zip code, ward, and census
 track of each stop and station, as well as binary indicators about
 whether each line stops at these locations and if they are ADA
 accessibile.
+
+### API documentation
+
+While the {ctar} package has data to reference stop and station ids and
+intuitivelly returns API error codes when you run into them, it can be
+useful to have readable tables explaining and documenting these. The
+[CTA developer page](https://www.transitchicago.com/developers/ttdocs/)
+contains reference to all of these tables and includes additional
+documentation of running individual queries outside of the context of
+this package.
+
+## Future plans
+
+  - Potentially adding the bus tracker and customer alerts APIs  
+  - Allowing some fuzzy matching for station and stop calls for ease of
+    use
+
+## Issues
+
+If you have an issue, feature suggestion, or question regarding use,
+feel free to open an issue here on github or tweet at me
+@[\_willdebras](https://twitter.com/_willdebras).
