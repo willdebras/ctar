@@ -38,14 +38,17 @@ get_locations <- function(route = NULL, key = ctar_api_key) {
   )
 
 
-  if (http_type(raw) != "application/json") {
+
+  url <- paste0("http://lapi.transitchicago.com/api/1.0/ttpositions.aspx", "?key=", key, "&rt=", route, "&outputType=JSON")
+
+  raw <- httr::GET(url)
+
+
+  if (httr::http_type(raw) != "application/json") {
     stop("Help I'm stuck in a JSON factory: API did not return json", call. = FALSE)
   }
 
 
-  url <- paste0("http://lapi.transitchicago.com/api/1.0/ttpositions.aspx", "?key=", key, "&rt=", route, "&outputType=JSON")
-
-  raw <- GET(url)
 
   parsed <- jsonlite::fromJSON(content(raw, "text"), simplifyDataFrame = TRUE)
 
