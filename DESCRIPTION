@@ -6,6 +6,11 @@ Author: Will Bonnell
 Maintainer: Will Bonnell <wtb3na@virginia.edu>
 Description: This package allows function calls that access data from the three APIs in 
     the Chicago Transit Authority train tracker.
+Imports: 
+    httr, 
+    jsonlite
+Suggest: 
+    tmap
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
