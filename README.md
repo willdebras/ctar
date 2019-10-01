@@ -1,5 +1,5 @@
 
-# ctar
+# {ctar}
 
 {ctar} is an R package designed to interface with the Chicago Transit
 Authority train tracker API. In order to use this R package you will
@@ -92,16 +92,100 @@ all lines.
 
 ``` r
 
-arrivals_lake <- get_arrivals <- get_arrivals(station = 40260, key = Sys.getenv("ctar_api_key"))
+arrivals_lake <- get_arrivals(station = 40260, key = Sys.getenv("ctar_api_key"))
 
 kable(head(arrivals_lake))
 ```
 
-| staId | stpId | staNm      | stpDe                          | rn  | rt   | destSt | destNm       | trDr | prdt                | arrT                | isApp | isSch | isDly | isFlt | flags | lat      | lon        | heading |
-| :---- | :---- | :--------- | :----------------------------- | :-- | :--- | :----- | :----------- | :--- | :------------------ | :------------------ | :---- | :---- | :---- | :---- | :---- | :------- | :--------- | :------ |
-| 40260 | 30051 | State/Lake | Service at Outer Loop platform | 415 | Brn  | 30249  | Kimball      | 1    | 2019-09-30 15:44:06 | 2019-09-30 15:45:06 | 1     | 0     | 0     | 0     | NA    | 41.88261 | \-87.62617 | 358     |
-| 40260 | 30050 | State/Lake | Service at Inner Loop platform | 513 | P    | 30203  | Linden       | 5    | 2019-09-30 15:44:16 | 2019-09-30 15:46:16 | 0     | 0     | 0     | 0     | NA    | 41.88572 | \-87.63391 | 89      |
-| 40260 | 30050 | State/Lake | Service at Inner Loop platform | 017 | G    | 30057  | Ashland/63rd | 5    | 2019-09-30 15:43:34 | 2019-09-30 15:47:34 | 0     | 0     | 0     | 0     | NA    | 41.8857  | \-87.64069 | 89      |
-| 40260 | 30050 | State/Lake | Service at Inner Loop platform | 715 | Org  | 30182  | Midway       | 5    | 2019-09-30 15:43:50 | 2019-09-30 15:49:50 | 0     | 0     | 0     | 0     | NA    | 41.87872 | \-87.63374 | 357     |
-| 40260 | 30051 | State/Lake | Service at Outer Loop platform | 015 | G    | 30004  | Harlem/Lake  | 1    | 2019-09-30 15:44:06 | 2019-09-30 15:52:06 | 0     | 0     | 0     | 0     | NA    | 41.85683 | \-87.62647 | 359     |
-| 40260 | 30050 | State/Lake | Service at Inner Loop platform | 312 | Pink | 30114  | 54th/Cermak  | 5    | 2019-09-30 15:44:11 | 2019-09-30 15:53:11 | 0     | 0     | 0     | 0     | NA    | 41.88574 | \-87.62758 | 90      |
+| staId | stpId | staNm      | stpDe                          | rn  | rt   | destSt | destNm        | trDr | prdt                | arrT                | isApp | isSch | isDly | isFlt | flags | lat      | lon        | heading |
+| :---- | :---- | :--------- | :----------------------------- | :-- | :--- | :----- | :------------ | :--- | :------------------ | :------------------ | :---- | :---- | :---- | :---- | :---- | :------- | :--------- | :------ |
+| 40260 | 30051 | State/Lake | Service at Outer Loop platform | 007 | G    | 30004  | Harlem/Lake   | 1    | 2019-10-01 09:57:17 | 2019-10-01 10:00:17 | 0     | 0     | 0     | 0     | NA    | 41.87452 | \-87.62655 | 33      |
+| 40260 | 30050 | State/Lake | Service at Inner Loop platform | 609 | G    | 30139  | Cottage Grove | 5    | 2019-10-01 09:57:18 | 2019-10-01 10:00:18 | 0     | 0     | 0     | 0     | NA    | 41.8857  | \-87.64069 | 89      |
+| 40260 | 30051 | State/Lake | Service at Outer Loop platform | 409 | Brn  | 30249  | Kimball       | 1    | 2019-10-01 09:55:09 | 2019-10-01 09:59:09 | 0     | 0     | 0     | 0     | NA    | 41.87694 | \-87.62738 | 88      |
+| 40260 | 30051 | State/Lake | Service at Outer Loop platform | 412 | Brn  | 30249  | Kimball       | 1    | 2019-10-01 09:57:12 | 2019-10-01 10:01:12 | 0     | 0     | 0     | 0     | NA    | 41.87689 | \-87.62908 | 88      |
+| 40260 | 30050 | State/Lake | Service at Inner Loop platform | 310 | Pink | 30114  | 54th/Cermak   | 5    | 2019-10-01 09:57:09 | 2019-10-01 10:01:09 | 0     | 0     | 0     | 0     | NA    | 41.88566 | \-87.64782 | 89      |
+| 40260 | 30050 | State/Lake | Service at Inner Loop platform | 716 | Org  | 30182  | Midway        | 5    | 2019-10-01 09:56:26 | 2019-10-01 10:05:26 | 0     | 0     | 0     | 0     | NA    | 41.87691 | \-87.6282  | 267     |
+
+## Locations API
+
+The locations API produces a list of trains and their locations on a
+single L route. This function takes a route argument and a key argument
+to produce a list of all trains on that line. It acts similarly to the
+arrivals API without a stop or station id in providing coordinnates,
+geospatial heading, train attributes, and next stop information.
+
+``` r
+
+locations_blue <- get_locations(route = "blue", key = Sys.getenv("ctar_api_key"))
+
+kable(head(locations_blue))
+```
+
+| rn  | destSt | destNm                | trDr | nextStaId | nextStpId | nextStaNm                 | prdt                | arrT                | isApp | isDly | flags | lat      | lon        | heading |
+| :-- | :----- | :-------------------- | :--- | :-------- | :-------- | :------------------------ | :------------------ | :------------------ | :---- | :---- | :---- | :------- | :--------- | :------ |
+| 103 | 30077  | Forest Park           | 5    | 40350     | 30069     | UIC-Halsted               | 2019-10-01 10:16:05 | 2019-10-01 10:18:05 | 0     | 0     | NA    | 41.87551 | \-87.64244 | 270     |
+| 104 | 30077  | Forest Park           | 5    | 40060     | 30013     | Belmont                   | 2019-10-01 10:16:14 | 2019-10-01 10:18:14 | 0     | 0     | NA    | 41.94644 | \-87.71833 | 142     |
+| 106 | 30077  | Forest Park           | 5    | 40810     | 30158     | Illinois Medical District | 2019-10-01 10:16:18 | 2019-10-01 10:17:18 | 1     | 0     | NA    | 41.87582 | \-87.66457 | 269     |
+| 110 | 30077  | Forest Park           | 5    | 41280     | 30248     | Jefferson Park            | 2019-10-01 10:15:44 | 2019-10-01 10:20:44 | 0     | 0     | NA    | 41.98233 | \-87.80815 | 89      |
+| 113 | 30077  | Forest Park           | 5    | 40230     | 30045     | Cumberland                | 2019-10-01 10:15:35 | 2019-10-01 10:17:35 | 0     | 0     | NA    | 41.98351 | \-87.85939 | 87      |
+| 114 | 0      | Rosemont (for OHare) | 1    | 41330     | 30259     | Montrose                  | 2019-10-01 10:16:17 | 2019-10-01 10:17:17 | 1     | 0     | NA    | 41.95604 | \-87.73464 | 297     |
+
+### Note on routes
+
+The `route` argument in each function will try to match to the full name
+of the line. While the API accepts only specific calls for route like
+“Org” for orange, “Y” for yellow, or “Red” for red, the functions for
+the arrivals and locations APIs in this package will match “y”, “yellow”
+or “yell” for yellow. It will always accept the full color spelled out
+and will try to match abbreviations if they are unique. For example, it
+will not match “b” to blue or brown, but it will match “br” to brown.
+
+## Follow This Train API
+
+The follow This Train API, or the “Follow the Damn Train, CJ” API,
+produces arrival predictions for a single train at all stations on its
+route until the end of its trip. This API requires a knowledge of run
+number associated with a train, which changes daily.
+
+We can use information from the arrivals or locations APIs above to
+access run number and then get information on the single train. We can
+call query information about its anticipated arrivals.
+
+``` r
+
+run_104 <- get_train(run_number = 104, key = Sys.getenv("ctar_api_key"))
+
+kable(head(run_104))
+```
+
+| staId | stpId | staNm                       | stpDe                          | rn  | rt        | destSt | destNm      | trDr | prdt                | arrT                | isApp | isSch | isDly | isFlt | flags |
+| :---- | :---- | :-------------------------- | :----------------------------- | :-- | :-------- | :----- | :---------- | :--- | :------------------ | :------------------ | :---- | :---- | :---- | :---- | :---- |
+| 40920 | 30180 | Pulaski                     | Service toward Forest Park     | 104 | Blue Line | 30077  | Forest Park | 5    | 2019-10-01 10:54:16 | 2019-10-01 10:57:16 | 0     | 0     | 0     | 0     | NA    |
+| 40970 | 30188 | Cicero                      | Service toward Forest Park     | 104 | Blue Line | 30077  | Forest Park | 5    | 2019-10-01 10:54:16 | 2019-10-01 11:00:16 | 0     | 0     | 0     | 0     | NA    |
+| 40010 | 30002 | Austin                      | Service toward Forest Park     | 104 | Blue Line | 30077  | Forest Park | 5    | 2019-10-01 10:54:16 | 2019-10-01 11:04:16 | 0     | 0     | 0     | 0     | NA    |
+| 40180 | 30035 | Oak Park                    | Service toward Forest Park     | 104 | Blue Line | 30077  | Forest Park | 5    | 2019-10-01 10:54:16 | 2019-10-01 11:06:16 | 0     | 0     | 0     | 0     | NA    |
+| 40980 | 30190 | Harlem (Forest Park Branch) | Service toward Forest Park     | 104 | Blue Line | 30077  | Forest Park | 5    | 2019-10-01 10:54:16 | 2019-10-01 11:09:16 | 0     | 0     | 0     | 0     | NA    |
+| 40390 | 30077 | Forest Park                 | Forest Park (Terminal Arrival) | 104 | Blue Line | 30077  | Forest Park | 5    | 2019-10-01 10:54:16 | 2019-10-01 11:10:16 | 0     | 0     | 0     | 0     | NA    |
+
+We can also singularly query information about its
+position.
+
+``` r
+run_104_position <- get_train_position(run_number = 104, key = Sys.getenv("ctar_api_key"))
+
+kable(head(run_104_position))
+```
+
+| lat      | lon        | heading |
+| :------- | :--------- | :------ |
+| 41.87401 | \-87.71586 | 269     |
+
+## Additional features
+
+The {ctar} package features a lot of additional data about individual
+stops found in the `stop_ids` dataset. A general explanation of the
+dataset can be found with the help command `?stop_ids`. In addition to
+the main variables, the dataset contains the zip code, ward, and census
+track of each stop and station, as well as binary indicators about
+whether each line stops at these locations and if they are ADA
+accessibile.

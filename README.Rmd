@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 
 library(knitr)
 ```
-# ctar
+# {ctar}
 
 {ctar} is an R package designed to interface with the Chicago Transit Authority train tracker API. In order to use this R package you will need to apply for a key. Applications for an API key can be found on the [CTA website](https://www.transitchicago.com/developers/traintrackerapply/). 
 
@@ -76,8 +76,49 @@ With this function, the route is optional. For stations with multiple routes, we
 
 ```{r lake, cache = TRUE}
 
-arrivals_lake <- get_arrivals <- get_arrivals(station = 40260, key = Sys.getenv("ctar_api_key"))
+arrivals_lake <- get_arrivals(station = 40260, key = Sys.getenv("ctar_api_key"))
 
 kable(head(arrivals_lake))
 
 ```
+
+## Locations API
+
+The locations API produces a list of trains and their locations on a single L route. This function takes a route argument and a key argument to produce a list of all trains on that line. It acts similarly to the arrivals API without a stop or station id in providing coordinnates, geospatial heading, train attributes, and next stop information.
+
+```{r loc, cache = TRUE}
+
+locations_blue <- get_locations(route = "blue", key = Sys.getenv("ctar_api_key"))
+
+kable(head(locations_blue))
+```
+
+### Note on routes
+
+The `route` argument in each function will try to match to the full name of the line. While the API accepts only specific calls for route like "Org" for orange, "Y" for yellow, or "Red" for red, the functions for the arrivals and locations APIs in this package will match "y", "yellow" or "yell" for yellow. It will always accept the full color spelled out and will try to match abbreviations if they are unique. For example, it will not match "b" to blue or brown, but it will match "br" to brown. 
+
+## Follow This Train API
+
+The follow This Train API, or the "Follow the Damn Train, CJ" API, produces arrival predictions for a single train at all stations on its route until the end of its trip. This API requires a knowledge of run number associated with a train, which changes daily. 
+
+We can use information from the arrivals or locations APIs above to access run number and then get information on the single train. We can call query information about its anticipated arrivals.
+
+```{r follow, cache = TRUE}
+
+run_104 <- get_train(run_number = 104, key = Sys.getenv("ctar_api_key"))
+
+kable(head(run_104))
+
+```
+
+We can also singularly query information about its position.
+
+```{r position, cache = TRUE}
+run_104_position <- get_train_position(run_number = 104, key = Sys.getenv("ctar_api_key"))
+
+kable(head(run_104_position))
+```
+
+## Additional features
+
+The {ctar} package features a lot of additional data about individual stops found in the `stop_ids` dataset. A general explanation of the dataset can be found with the help command `?stop_ids`. In addition to the main variables, the dataset contains the zip code, ward, and census track of each stop and station, as well as binary indicators about whether each line stops at these locations and if they are ADA accessibile. 
