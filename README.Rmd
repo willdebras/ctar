@@ -66,7 +66,7 @@ Now we can get some basic data about arrivals with the `get_arrivals()` function
 
 ```{r example, cache = TRUE}
 
-arrivals_18th <- get_arrivals <- get_arrivals(route = "pink", stop = 30162, key = Sys.getenv("ctar_api_key"))
+arrivals_18th <- get_arrivals(route = "pink", stop = 30162, key = Sys.getenv("ctar_api_key"))
 
 kable(head(arrivals_18th))
 
@@ -133,6 +133,7 @@ While the {ctar} package has data to reference stop and station ids and intuitiv
 
  - Potentially adding the bus tracker and customer alerts APIs  
  - Allowing some fuzzy matching for station and stop calls for ease of use
+ - Unit tests/CRAN submission :^)
  
 ## Issues 
  
