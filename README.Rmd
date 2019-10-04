@@ -64,7 +64,7 @@ kable(head(stop_ids[1:6]))
 
 Now we can get some basic data about arrivals with the `get_arrivals()` function. 
 
-```{r example, cache = TRUE}
+```{r example}
 
 arrivals_18th <- get_arrivals(route = "pink", stop = 30162, key = Sys.getenv("ctar_api_key"))
 

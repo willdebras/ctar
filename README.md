@@ -81,8 +81,8 @@ kable(head(arrivals_18th))
 
 | staId | stpId | staNm | stpDe                      | rn  | rt   | destSt | destNm      | trDr | prdt                | arrT                | isApp | isSch | isDly | isFlt | flags | lat      | lon        | heading |
 | :---- | :---- | :---- | :------------------------- | :-- | :--- | :----- | :---------- | :--- | :------------------ | :------------------ | :---- | :---- | :---- | :---- | :---- | :------- | :--------- | :------ |
-| 40830 | 30162 | 18th  | Service toward 54th/Cermak | 307 | Pink | 30114  | 54th/Cermak | 5    | 2019-10-03 14:04:19 | 2019-10-03 14:10:19 | 0     | 0     | 0     | 0     | NA    | 41.88531 | \-87.66697 | 268     |
-| 40830 | 30162 | 18th  | Service toward 54th/Cermak | 306 | Pink | 30114  | 54th/Cermak | 5    | 2019-10-03 14:04:41 | 2019-10-03 14:19:41 | 0     | 0     | 0     | 0     | NA    | 41.87695 | \-87.63365 | 307     |
+| 40830 | 30162 | 18th  | Service toward 54th/Cermak | 309 | Pink | 30114  | 54th/Cermak | 5    | 2019-10-04 15:14:54 | 2019-10-04 15:23:54 | 0     | 0     | 0     | 0     | NA    | 41.88571 | \-87.63799 | 269     |
+| 40830 | 30162 | 18th  | Service toward 54th/Cermak | 311 | Pink | 30114  | 54th/Cermak | 5    | 2019-10-04 15:14:23 | 2019-10-04 15:33:23 | 0     | 0     | 0     | 0     | NA    | 41.88262 | \-87.62617 | 178     |
 
 With this function, the route is optional. For stations with multiple
 routes, we can request data from all of the routes. For example, let’s
