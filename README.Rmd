@@ -64,7 +64,7 @@ kable(head(stop_ids[1:6]))
 
 Now we can get some basic data about arrivals with the `get_arrivals()` function. 
 
-```{r example}
+```{r example, cache = TRUE}
 
 arrivals_18th <- get_arrivals(route = "pink", stop = 30162, key = Sys.getenv("ctar_api_key"))
 
@@ -76,7 +76,7 @@ The response columns in the dataset correspond with the response fields of the A
 
 ```{r gra, echo = FALSE}
 
-knitr::include_graphics("H:\\New fldr\\ctar_responses.png")
+knitr::include_graphics("./images/ctar_responses.png")
 
 ```
 

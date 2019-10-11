@@ -81,14 +81,14 @@ kable(head(arrivals_18th))
 
 | staId | stpId | staNm | stpDe                      | rn  | rt   | destSt | destNm      | trDr | prdt                | arrT                | isApp | isSch | isDly | isFlt | flags | lat      | lon        | heading |
 | :---- | :---- | :---- | :------------------------- | :-- | :--- | :----- | :---------- | :--- | :------------------ | :------------------ | :---- | :---- | :---- | :---- | :---- | :------- | :--------- | :------ |
-| 40830 | 30162 | 18th  | Service toward 54th/Cermak | 307 | Pink | 30114  | 54th/Cermak | 5    | 2019-10-11 12:28:46 | 2019-10-11 12:32:46 | 0     | 0     | 0     | 0     | NA    | 41.88526 | \-87.66893 | 268     |
-| 40830 | 30162 | 18th  | Service toward 54th/Cermak | 302 | Pink | 30114  | 54th/Cermak | 5    | 2019-10-11 12:28:57 | 2019-10-11 12:47:57 | 0     | 0     | 0     | 0     | NA    | 41.88443 | \-87.62622 | 178     |
+| 40830 | 30162 | 18th  | Service toward 54th/Cermak | 307 | Pink | 30114  | 54th/Cermak | 5    | 2019-10-03 14:04:19 | 2019-10-03 14:10:19 | 0     | 0     | 0     | 0     | NA    | 41.88531 | \-87.66697 | 268     |
+| 40830 | 30162 | 18th  | Service toward 54th/Cermak | 306 | Pink | 30114  | 54th/Cermak | 5    | 2019-10-03 14:04:41 | 2019-10-03 14:19:41 | 0     | 0     | 0     | 0     | NA    | 41.87695 | \-87.63365 | 307     |
 
 The response columns in the dataset correspond with the response fields
 of the API. Detailed information about the response fields is below or
 available on the API website.
 
-<img src="H:\New fldr\ctar_responses.png" width="100%" />
+<img src="./images/ctar_responses.png" width="100%" />
 
 With this function, the route is optional. For stations with multiple
 routes, we can request data from all of the routes. For example, let’s
