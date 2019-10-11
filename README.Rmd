@@ -72,6 +72,15 @@ kable(head(arrivals_18th))
 
 ```
 
+The response columns in the dataset correspond with the response fields of the API. Detailed information about the response fields is below or available on the API website.  
+
+```{r gra, echo = FALSE}
+
+knitr::include_graphics("H:\\New fldr\\ctar_responses.png")
+
+```
+
+
 With this function, the route is optional. For stations with multiple routes, we can request data from all of the routes. For example, let's use the station argument for the State/Lake stop so we get data from both directions and let's call it without a route so we get data from all lines. 
 
 ```{r lake, cache = TRUE}
