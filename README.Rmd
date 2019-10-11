@@ -72,7 +72,7 @@ kable(head(arrivals_18th))
 
 ```
 
-The response columns in the dataset correspond with the response fields of the API. Detailed information about the response fields is below or available on the API website.  
+The response columns in the returned dataframe correspond with the response fields of the API. Detailed information about the response fields is below or available on the API website.  
 
 ```{r gra, echo = FALSE}
 

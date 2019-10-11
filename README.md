@@ -84,9 +84,9 @@ kable(head(arrivals_18th))
 | 40830 | 30162 | 18th  | Service toward 54th/Cermak | 307 | Pink | 30114  | 54th/Cermak | 5    | 2019-10-03 14:04:19 | 2019-10-03 14:10:19 | 0     | 0     | 0     | 0     | NA    | 41.88531 | \-87.66697 | 268     |
 | 40830 | 30162 | 18th  | Service toward 54th/Cermak | 306 | Pink | 30114  | 54th/Cermak | 5    | 2019-10-03 14:04:41 | 2019-10-03 14:19:41 | 0     | 0     | 0     | 0     | NA    | 41.87695 | \-87.63365 | 307     |
 
-The response columns in the dataset correspond with the response fields
-of the API. Detailed information about the response fields is below or
-available on the API website.
+The response columns in the returned dataframe correspond with the
+response fields of the API. Detailed information about the response
+fields is below or available on the API website.
 
 <img src="./images/ctar_responses.png" width="100%" />
 
