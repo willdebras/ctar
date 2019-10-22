@@ -15,8 +15,8 @@
 #' @return Returns a table of the longitude and latitude of a single train.
 #' @export
 #'
-#' @examples get_train_position(308, key = ctar_api_key)
-get_train_position <- function(run_number = NULL, key = ctar_api_key) {
+#' @examples get_train_position(308, key = Sys.getenv("ctar_api_key"))
+get_train_position <- function(run_number = NULL, key = Sys.getenv("ctar_api_key")) {
 
 
   url <- paste0("https://lapi.transitchicago.com/api/1.0/ttfollow.aspx", "?key=", key, "&runnumber=", run_number, "&outputType=JSON")

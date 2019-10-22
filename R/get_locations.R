@@ -10,8 +10,8 @@
 #' @importFrom httr GET http_type content
 #' @importFrom jsonlite fromJSON
 #'
-#' @examples get_locations(route = "red", key = ctar_api_key)
-get_locations <- function(route = NULL, key = ctar_api_key) {
+#' @examples get_locations(route = "red", key = Sys.getenv("ctar_api_key"))
+get_locations <- function(route = NULL, key = Sys.getenv("ctar_api_key")) {
 
 
   if (!is.null(route)) {
