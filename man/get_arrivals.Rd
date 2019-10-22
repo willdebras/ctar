@@ -5,7 +5,7 @@
 \title{get_arrivals}
 \usage{
 get_arrivals(route = NULL, station = NULL, stop = NULL,
-  key = ctar_api_key)
+  key = Sys.getenv("ctar_api_key"))
 }
 \arguments{
 \item{route}{The route or "line" for which you want data. Options are red, blue, brown, pink, green, orange, purple, or yellow. This parameter will match the argument to one of these lines.}
@@ -23,5 +23,5 @@ returns a dataframe of locations, estimated arrivals, and reference data.
 Function to query data from the CTA arrivals API. The function can give all estimated arrival times by simply calling `get_arrivals()` or limited estimations by station, route, or a combination of both.
 }
 \examples{
-get_arrivals(route = "pink", stop = 30132, key = ctar_api_key)
+get_arrivals(route = "pink", stop = 30132, key = Sys.getenv("ctar_api_key"))
 }

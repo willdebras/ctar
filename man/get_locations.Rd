@@ -4,7 +4,7 @@
 \alias{get_locations}
 \title{get_locations}
 \usage{
-get_locations(route = NULL, key = ctar_api_key)
+get_locations(route = NULL, key = Sys.getenv("ctar_api_key"))
 }
 \arguments{
 \item{route}{The route or "line" for which you want data. Options are red, blue, brown, pink, green, orange, purple, or yellow. This parameter will match the argument to one of these lines.}
@@ -18,5 +18,5 @@ returns a dataframe of locations data associated with the route/line specified
 Function to query data from the CTA locations API. The function can provide a list of all trains and their locations and attributes by calling `get_locations()` or limited estimations by route/line.
 }
 \examples{
-get_locations(route = "red", key = ctar_api_key)
+get_locations(route = "red", key = Sys.getenv("ctar_api_key"))
 }

@@ -4,7 +4,7 @@
 \alias{get_train}
 \title{get_train}
 \usage{
-get_train(run_number = NULL, key = ctar_api_key)
+get_train(run_number = NULL, key = Sys.getenv("ctar_api_key"))
 }
 \arguments{
 \item{run_number}{This is a run number associated with a single train. These change daily. `get_arrivals()` or `get_locations()` will provide info on run number.}
@@ -21,6 +21,6 @@ This function is one of two that interacts with the Follow the Train API. It pro
 This API tends to be finicky and fail. The `get_arrivals()` function tends to be more precise and can be filtered by run number.
 }
 \examples{
-get_train(308, key = ctar_api_key)
+get_train(110, key = Sys.getenv("ctar_api_key"))
 
 }
