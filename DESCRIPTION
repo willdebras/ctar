@@ -9,6 +9,7 @@ Description: This package allows function calls that access data from the three 
 Imports: 
     httr, 
     jsonlite
+Depends: R (>= 2.10)
 Suggest: 
     tmap
 License: MIT + file LICENSE
