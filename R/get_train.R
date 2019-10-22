@@ -14,8 +14,13 @@
 #' @return Returns a dataframe of future positions and arrival times for a single train.
 #' @export
 #'
-#' @examples get_train(110, key = Sys.getenv("ctar_api_key"))
 #'
+#'
+#' @examples
+#'
+#' \dontrun{
+#' get_train(110, key = Sys.getenv("ctar_api_key"))
+#' }
 get_train <- function(run_number = NULL, key = Sys.getenv("ctar_api_key")) {
 
 

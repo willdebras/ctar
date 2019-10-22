@@ -23,5 +23,8 @@ returns a dataframe of locations, estimated arrivals, and reference data.
 Function to query data from the CTA arrivals API. The function can give all estimated arrival times by simply calling `get_arrivals()` or limited estimations by station, route, or a combination of both.
 }
 \examples{
+
+\dontrun{
 get_arrivals(route = "pink", stop = 30132, key = Sys.getenv("ctar_api_key"))
+}
 }

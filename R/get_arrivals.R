@@ -12,7 +12,14 @@
 #' @importFrom httr GET http_type content
 #' @importFrom jsonlite fromJSON
 #'
-#' @examples get_arrivals(route = "pink", stop = 30132, key = Sys.getenv("ctar_api_key"))
+#'
+#'
+#'
+#' @examples
+#'
+#' \dontrun{
+#' get_arrivals(route = "pink", stop = 30132, key = Sys.getenv("ctar_api_key"))
+#' }
 get_arrivals <- function(route = NULL, station = NULL, stop = NULL, key = Sys.getenv("ctar_api_key")) {
 
 

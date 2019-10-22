@@ -21,6 +21,8 @@ This function is one of two that interacts with the Follow the Train API. It pro
 This API tends to be finicky and fail. The `get_arrivals()` function tends to be more precise and can be filtered by run number.
 }
 \examples{
-get_train(110, key = Sys.getenv("ctar_api_key"))
 
+\dontrun{
+get_train(110, key = Sys.getenv("ctar_api_key"))
+}
 }

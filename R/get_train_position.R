@@ -15,7 +15,12 @@
 #' @return Returns a table of the longitude and latitude of a single train.
 #' @export
 #'
-#' @examples get_train_position(308, key = Sys.getenv("ctar_api_key"))
+#'
+#' @examples
+#'
+#' \dontrun{
+#' get_train_position(308, key = Sys.getenv("ctar_api_key"))
+#' }
 get_train_position <- function(run_number = NULL, key = Sys.getenv("ctar_api_key")) {
 
 

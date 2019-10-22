@@ -18,5 +18,8 @@ returns a dataframe of locations data associated with the route/line specified
 Function to query data from the CTA locations API. The function can provide a list of all trains and their locations and attributes by calling `get_locations()` or limited estimations by route/line.
 }
 \examples{
+
+\dontrun{
 get_locations(route = "red", key = Sys.getenv("ctar_api_key"))
+}
 }
