@@ -93,7 +93,7 @@ kable(head(arrivals_lake))
 
 ## Locations API
 
-The locations API produces a list of trains and their locations on a single L route. This function takes a route argument and a key argument to produce a list of all trains on that line. It acts similarly to the arrivals API without a stop or station id in providing coordinnates, geospatial heading, train attributes, and next stop information.
+The locations API produces a list of trains and their locations on a single L route. This function takes a route argument and a key argument to produce a list of all trains on that line. It acts similarly to the arrivals API without a stop or station id in providing coordinates, geospatial heading, train attributes, and next stop information.
 
 ```{r loc, cache = TRUE}
 
@@ -132,11 +132,11 @@ kable(head(run_104_position))
 
 ### stop_ids dataset
 
-The {ctar} package features a lot of additional data about individual stops found in the `stop_ids` dataset. A general explanation of the dataset can be found with the help command `?stop_ids`. In addition to the main variables, the dataset contains the zip code, ward, and census track of each stop and station, as well as binary indicators about whether each line stops at these locations and if they are ADA accessibile. 
+The {ctar} package features a lot of additional data about individual stops found in the `stop_ids` dataset. A general explanation of the dataset can be found with the help command `?stop_ids`. In addition to the main variables, the dataset contains the zip code, ward, and census track of each stop and station, as well as binary indicators about whether each line stops at these locations and if they are ADA accessible. 
 
 ### API documentation
 
-While the {ctar} package has data to reference stop and station ids and intuitivelly returns API error codes when you run into them, it can be useful to have readable tables explaining and documenting these. The [CTA developer page](https://www.transitchicago.com/developers/ttdocs/) contains reference to all of these tables and includes additional documentation of running individual queries outside of the context of this package.
+While the {ctar} package has data to reference stop and station ids and intuitively returns API error codes when you run into them, it can be useful to have readable tables explaining and documenting these. The [CTA developer page](https://www.transitchicago.com/developers/ttdocs/) contains reference to all of these tables and includes additional documentation of running individual queries outside of the context of this package.
 
 ## Future plans
 

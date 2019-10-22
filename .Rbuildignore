@@ -2,4 +2,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 images
-README_cache
+^README_cache
+gfm
+

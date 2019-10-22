@@ -12,7 +12,7 @@ get_arrivals(route = NULL, station = NULL, stop = NULL,
 
 \item{station}{The station, or parent stop, ID. These uniquely identify a station. Call `stop_ids()` for reference}
 
-\item{stop}{The stop ID. These uniquely identify a station and directiion. Call `stop_ids()` for reference}
+\item{stop}{The stop ID. These uniquely identify a station and direction. Call `stop_ids()` for reference}
 
 \item{key}{The Chicago Transit Authority developer API key either entered as a string or saved to the environment object `ctar_api_key`}
 }

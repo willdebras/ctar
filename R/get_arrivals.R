@@ -4,7 +4,7 @@
 #'
 #' @param route The route or "line" for which you want data. Options are red, blue, brown, pink, green, orange, purple, or yellow. This parameter will match the argument to one of these lines.
 #' @param station The station, or parent stop, ID. These uniquely identify a station. Call `stop_ids()` for reference
-#' @param stop The stop ID. These uniquely identify a station and directiion. Call `stop_ids()` for reference
+#' @param stop The stop ID. These uniquely identify a station and direction. Call `stop_ids()` for reference
 #' @param key The Chicago Transit Authority developer API key either entered as a string or saved to the environment object `ctar_api_key`
 #'
 #' @return returns a dataframe of locations, estimated arrivals, and reference data.

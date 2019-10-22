@@ -117,7 +117,7 @@ kable(head(arrivals_lake))
 The locations API produces a list of trains and their locations on a
 single L route. This function takes a route argument and a key argument
 to produce a list of all trains on that line. It acts similarly to the
-arrivals API without a stop or station id in providing coordinnates,
+arrivals API without a stop or station id in providing coordinates,
 geospatial heading, train attributes, and next stop information.
 
 ``` r
@@ -127,14 +127,14 @@ locations_blue <- get_locations(route = "blue", key = Sys.getenv("ctar_api_key")
 kable(head(locations_blue))
 ```
 
-| rn  | destSt | destNm                | trDr | nextStaId | nextStpId | nextStaNm                 | prdt                | arrT                | isApp | isDly | flags | lat      | lon        | heading |
-| :-- | :----- | :-------------------- | :--- | :-------- | :-------- | :------------------------ | :------------------ | :------------------ | :---- | :---- | :---- | :------- | :--------- | :------ |
-| 103 | 30077  | Forest Park           | 5    | 40350     | 30069     | UIC-Halsted               | 2019-10-01 10:16:05 | 2019-10-01 10:18:05 | 0     | 0     | NA    | 41.87551 | \-87.64244 | 270     |
-| 104 | 30077  | Forest Park           | 5    | 40060     | 30013     | Belmont                   | 2019-10-01 10:16:14 | 2019-10-01 10:18:14 | 0     | 0     | NA    | 41.94644 | \-87.71833 | 142     |
-| 106 | 30077  | Forest Park           | 5    | 40810     | 30158     | Illinois Medical District | 2019-10-01 10:16:18 | 2019-10-01 10:17:18 | 1     | 0     | NA    | 41.87582 | \-87.66457 | 269     |
-| 110 | 30077  | Forest Park           | 5    | 41280     | 30248     | Jefferson Park            | 2019-10-01 10:15:44 | 2019-10-01 10:20:44 | 0     | 0     | NA    | 41.98233 | \-87.80815 | 89      |
-| 113 | 30077  | Forest Park           | 5    | 40230     | 30045     | Cumberland                | 2019-10-01 10:15:35 | 2019-10-01 10:17:35 | 0     | 0     | NA    | 41.98351 | \-87.85939 | 87      |
-| 114 | 0      | Rosemont (for OHare) | 1    | 41330     | 30259     | Montrose                  | 2019-10-01 10:16:17 | 2019-10-01 10:17:17 | 1     | 0     | NA    | 41.95604 | \-87.73464 | 297     |
+| rn  | destSt | destNm                  | trDr | nextStaId | nextStpId | nextStaNm                 | prdt                | arrT                | isApp | isDly | flags | lat      | lon        | heading |
+| :-- | :----- | :---------------------- | :--- | :-------- | :-------- | :------------------------ | :------------------ | :------------------ | :---- | :---- | :---- | :------- | :--------- | :------ |
+| 103 | 30077  | Forest Park             | 5    | 40350     | 30069     | UIC-Halsted               | 2019-10-01 10:16:05 | 2019-10-01 10:18:05 | 0     | 0     | NA    | 41.87551 | \-87.64244 | 270     |
+| 104 | 30077  | Forest Park             | 5    | 40060     | 30013     | Belmont                   | 2019-10-01 10:16:14 | 2019-10-01 10:18:14 | 0     | 0     | NA    | 41.94644 | \-87.71833 | 142     |
+| 106 | 30077  | Forest Park             | 5    | 40810     | 30158     | Illinois Medical District | 2019-10-01 10:16:18 | 2019-10-01 10:17:18 | 1     | 0     | NA    | 41.87582 | \-87.66457 | 269     |
+| 110 | 30077  | Forest Park             | 5    | 41280     | 30248     | Jefferson Park            | 2019-10-01 10:15:44 | 2019-10-01 10:20:44 | 0     | 0     | NA    | 41.98233 | \-87.80815 | 89      |
+| 113 | 30077  | Forest Park             | 5    | 40230     | 30045     | Cumberland                | 2019-10-01 10:15:35 | 2019-10-01 10:17:35 | 0     | 0     | NA    | 41.98351 | \-87.85939 | 87      |
+| 114 | 0      | Rosemont (for OâHare) | 1    | 41330     | 30259     | Montrose                  | 2019-10-01 10:16:17 | 2019-10-01 10:17:17 | 1     | 0     | NA    | 41.95604 | \-87.73464 | 297     |
 
 ### Note on routes
 
@@ -196,12 +196,12 @@ dataset can be found with the help command `?stop_ids`. In addition to
 the main variables, the dataset contains the zip code, ward, and census
 track of each stop and station, as well as binary indicators about
 whether each line stops at these locations and if they are ADA
-accessibile.
+accessible.
 
 ### API documentation
 
 While the {ctar} package has data to reference stop and station ids and
-intuitivelly returns API error codes when you run into them, it can be
+intuitively returns API error codes when you run into them, it can be
 useful to have readable tables explaining and documenting these. The
 [CTA developer page](https://www.transitchicago.com/developers/ttdocs/)
 contains reference to all of these tables and includes additional
