@@ -1,0 +1,21 @@
+#' ctar bus shapefile
+#'
+#' A dataframe read from a .shp file containing geometries of bus routes
+#' Call the dataset with `data(bus_shapefiles)`
+#'
+
+#' @format A data frame with 127 rows and 8 variables:
+#' \describe{
+#'   \item{OBJECTID}{An ID of each gemotry}
+#'   \item{ROUTE}{The bus line route}
+#'   \item{NAME}{The stop name along that route}
+#'   \item{WKDAY}{Binary 0,1 variable signifying if a bus stops at that stop on a weekday}
+#'   \item{SAT}{Binary 0,1 variable signifying if a bus stops at that stop on a saturday}
+#'   \item{SUN}{Binary 0,1 variable signifying if a bus stops at that stop on a sunday}
+#'   \item{SHAPE_LEN}{A perimeter measurement of the shape measured in meters}
+#'   \item{geometry}{A list of points creating a geometry, interpretable by GIS packages}
+#'   ...
+#' }
+#' @source <https://data.cityofchicago.org/Transportation/CTA-Bus-Routes-kml/rytz-fq6y/>
+
+"bus_shapefile"

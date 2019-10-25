@@ -1,0 +1,23 @@
+#' ctar train line shapefile
+#'
+#' A dataframe read from a .shp file containing geometries of train routes
+#' Call the dataset with `data(train_shapefiles)`
+#'
+
+#' @format A data frame with 154 rows and 10 variables:
+#' \describe{
+#'   \item{OBJECTID}{An ID of each gemotry}
+#'   \item{ASSET_ID}{?}
+#'   \item{LINES}{String of lines serviced on this route's gemoetry}
+#'   \item{DESCRIPTIO}{Description of the start and stop of routes of this geometry}
+#'   \item{TYPE}{Binary 0,1 variable signifying if a bus stops at that stop on a weekday}
+#'   \item{LEGEND}{Factor indicator of the main route}
+#'   \item{ALT_LEEGEND}{Factor indicator of all the routees as one string}
+#'   \item{BRANCH}{Branch of train service, e.g. "Red Line North Side"}
+#'   \item{SHAPE_LEN}{A perimeter measurement of the shape measured in meters}
+#'   \item{geometry}{A list of points creating a geometry, interpretable by GIS packages}
+#'   ...
+#' }
+#' @source <https://data.cityofchicago.org/Transportation/CTA-Bus-Routes-kml/rytz-fq6y/>
+
+"train_shapefile"
