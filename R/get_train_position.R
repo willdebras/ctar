@@ -9,7 +9,7 @@
 #' @param key The Chicago Transit Authority developer API key either entered as a string or saved to the environment object `ctar_api_key`
 #'
 #'
-#' @importFrom httr GET http_type content
+#' @importFrom httr RETRY http_type content
 #' @importFrom jsonlite fromJSON
 #'
 #' @return Returns a table of the longitude and latitude of a single train.
@@ -26,8 +26,13 @@ get_train_position <- function(run_number = NULL, key = Sys.getenv("ctar_api_key
 
   url <- paste0("https://lapi.transitchicago.com/api/1.0/ttfollow.aspx", "?key=", key, "&runnumber=", run_number, "&outputType=JSON")
 
-  raw <- GET(url)
-
+  raw <- httr::RETRY(
+    verb = "GET",
+    url = url,
+    times = 5,
+    terminate_on = c(403, 404),
+    terminate_on_success = TRUE
+  )
 
   if (http_type(raw) != "application/json") {
     stop("The end is nigh: API did not return json", call. = FALSE)
