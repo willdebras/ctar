@@ -44,6 +44,25 @@ Sys.setenv(ctar_api_key="xxxxxxxxxxxxx")
 get_arrivals(route = "red", key = Sys.getenv("ctar_api_key"))
 ```
 
+You can also use a `.Renviron` file to have R automatically set the
+environment variable at startup. The package `usethis` can be handy for
+this.
+
+``` r
+usethis::edit_r_environ()
+```
+
+This will open a .Renviron file for you. Add a line like this, but
+substitute your API key:
+
+`ctar_api_key="xxxxxxxxxxxxx"`
+
+Save the file then restart your R session
+
+``` r
+get_arrivals(route = "red", key = Sys.getenv("ctar_api_key"))
+```
+
 ## Arrivals API
 
 The arrivals API produces a list of arrival predictions for all
@@ -197,6 +216,105 @@ the main variables, the dataset contains the zip code, ward, and census
 track of each stop and station, as well as binary indicators about
 whether each line stops at these locations and if they are ADA
 accessible.
+
+## Using the Bus Tracker API
+
+There are currently 5 functions implemented for getting data from the
+CTA Bus Tracker API:
+
+  - `get_bus_tracker_system_time()` - used to make sure your computer
+    and the CTA server are in sync
+  - `get_bus_routes()` - returns a dataframe of all the CTA bus routes
+  - `get_bus_route_directions()` - returns a dataframe of the directions
+    an individual bus route travels in
+  - `get_bus_route_stops()` - returns a dataframe with the locations of
+    stops along an individual bus route with direction
+  - `get_bus_location()` - returns a dataframe with the last location of
+    currently operating buses
+
+### Bus Tracker examples
+
+Get the difference between my computer’s clock and the CTA Bus Tracker
+server clock
+
+``` r
+my_time <- Sys.time()
+bus_time <- get_bus_system_time(key=Sys.getenv("ctar_api_key"))
+
+paste("My time: ", my_time, ", Bus server time: ", bus_time)
+#> [1] "My time:  2019-10-25 22:31:31 , Bus server time:  2019-10-25 22:31:32"
+```
+
+Get all the CTA Bus Routes and print out a handful
+
+``` r
+cta_bus_routes <- get_bus_routes()
+sample_of_buses <- c(8, 12, 20, 49)
+
+kable(cta_bus_routes[cta_bus_routes$rt %in% sample_of_buses, ])
+```
+
+|    | rt | rtnm      | rtclr    | rtdd |
+| -- | :- | :-------- | :------- | :--- |
+| 8  | 8  | Halsted   | \#ff00ff | 8    |
+| 13 | 12 | Roosevelt | \#33ccff | 12   |
+| 18 | 20 | Madison   | \#336633 | 20   |
+| 36 | 49 | Western   | \#336633 | 49   |
+
+Find out what directions a bus route travels
+
+``` r
+route_directions <- get_bus_route_directions(route = 8)
+
+print(route_directions)
+#>          dir
+#> 1 Northbound
+#> 2 Southbound
+```
+
+``` r
+route_stops <- get_bus_route_stops(route = 8, direction = "n")
+
+most_south <- min(route_stops$lat)
+most_north <- max(route_stops$lat)
+
+route_stop_ends <- rbind(
+  route_stops[route_stops$lat == most_south, ],
+  route_stops[route_stops$lat == most_north, ]
+)
+
+kable(route_stop_ends)
+```
+
+|    | stpid | stpnm                                |      lat |        lon |
+| -- | :---- | :----------------------------------- | -------: | ---------: |
+| 55 | 3681  | Halsted & 79th Street Terminal       | 41.74973 | \-87.64365 |
+| 96 | 5756  | Halsted & Waveland/Broadway Terminal | 41.94977 | \-87.64889 |
+
+Find out where buses on a route actually are
+
+``` r
+bus_locations <- get_bus_location(routes = 8)
+
+# Transpose just to make it easier to see all the columns
+kable(t(bus_locations[1:3, ]))
+```
+
+|           | 1                   | 2                   | 3                   |
+| --------- | :------------------ | :------------------ | :------------------ |
+| vid       | 7938                | 1219                | 7970                |
+| tmstmp    | 2019-10-25 22:31:04 | 2019-10-25 22:31:11 | 2019-10-25 22:31:07 |
+| lat       | 41.949771881103516  | 41.92406120300293   | 41.8552885055542    |
+| lon       | \-87.64889526367188 | \-87.64871215820312 | \-87.64659118652344 |
+| hdg       | 88                  | 178                 | 179                 |
+| pid       | 9368                | 9368                | 9368                |
+| rt        | 8                   | 8                   | 8                   |
+| des       | 79th                | 79th                | 79th                |
+| pdist     | 0                   | 9629                | 34932               |
+| dly       | FALSE               | FALSE               | FALSE               |
+| tatripid  | 1078428             | 1078427             | 1078425             |
+| tablockid | 8 -713              | 8 -704              | 8 -715              |
+| zone      |                     |                     |                     |
 
 ### API documentation
 
