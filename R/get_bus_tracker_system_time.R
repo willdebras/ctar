@@ -18,13 +18,13 @@
 #' get_bus_system_time(key = Sys.getenv("ctar_api_key"))
 #' }
 get_bus_system_time <- function(key = Sys.getenv("ctar_api_key")) {
-    
+
   base_url <- "http://www.ctabustracker.com/bustime/api/v2/"
   endpoint <- "gettime"
   url <- paste0(base_url, endpoint)
   raw <- httr::GET(url, query=list(key=key, format="json"))
-  
-  if (http_type(raw) != "application/json") {
+
+  if (httr::http_type(raw) != "application/json") {
       stop("API did not return json", call. = FALSE)
   }
 

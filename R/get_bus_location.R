@@ -42,7 +42,7 @@ get_bus_location <- function(
       vid=vehicle_ids, rt=routes, tmres=time_resolution
   ))
 
-  if (http_type(raw) != "application/json") {
+  if (httr::http_type(raw) != "application/json") {
       stop("API did not return json", call. = FALSE)
   }
 

@@ -51,10 +51,10 @@ get_bus_route_stops <- function(
   base_url <- "http://www.ctabustracker.com/bustime/api/v2/"
   endpoint <- "getstops"
   url <- paste0(base_url, endpoint)
-  
+
   raw <- httr::GET(url, query=list(key=key, format="json", rt=route, dir=direction))
-  
-  if (http_type(raw) != "application/json") {
+
+  if (httr::http_type(raw) != "application/json") {
       stop("API did not return json", call. = FALSE)
   }
 
