@@ -9,7 +9,7 @@
 #'
 #' @return returns a dataframe of locations, estimated arrivals, and reference data.
 #' @export
-#' @importFrom httr GET http_type content
+#' @importFrom httr RETRY http_type content
 #' @importFrom jsonlite fromJSON
 #'
 #'
@@ -43,7 +43,13 @@ get_arrivals <- function(route = NULL, station = NULL, stop = NULL, key = Sys.ge
 
   url <- paste0("http://lapi.transitchicago.com/api/1.0/ttarrivals.aspx", "?key=", key, "&rt=", route, "&stpid=", stop, "&mapid=", station, "&outputType=JSON")
 
-  raw <- httr::GET(url)
+  raw <- httr::RETRY(
+    verb = "GET",
+    url = url,
+    times = 5,
+    terminate_on = c(403, 404),
+    terminate_on_success = TRUE
+  )
 
   if (httr::http_type(raw) != "application/json") {
     stop("JSON machine broke: API did not return json", call. = FALSE)
