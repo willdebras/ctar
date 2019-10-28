@@ -1,7 +1,7 @@
 Package: ctar
 Type: Package
 Title: Interfacing with the CTA train tracker API
-Version: 0.1.0
+Version: 0.2.0
 Author: Will Bonnell 
 Maintainer: Will Bonnell <wtb3na@virginia.edu>
 Description: Allows function calls that access data from the three APIs in 
