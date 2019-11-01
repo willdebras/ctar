@@ -13,21 +13,21 @@
   \item{STATION_DESCRIPTIVE_NAME}{Station name with appended description of the route/line}
   \item{STATION_ID}{Unique identifier for each station, also known as "parent ID" or "parent station ID"}
   \item{ADA}{Binary variable identifying if the station is accessible to riders with disabilities}
-  \item{RED}{}
-  \item{BLUE}{}
-  \item{G}{}
-  \item{BRN}{}
-  \item{P}{}
-  \item{Pexp}{}
-  \item{Y}{}
-  \item{Pnk}{}
-  \item{O}{}
+  \item{RED}{Binary indicator of if this stop/station services red line}
+  \item{BLUE}{Binary indicator of if this stop/station services blue line}
+  \item{G}{Binary indicator of if this stop/station services green line}
+  \item{BRN}{Binary indicator of if this stop/station services brown line}
+  \item{P}{Binary indicator of if this stop/station services purple line}
+  \item{Pexp}{Binary indicator of if this stop/station services purple express line}
+  \item{Y}{Binary indicator of if this stop/station services yellow line}
+  \item{Pnk}{Binary indicator of if this stop/station services pink line}
+  \item{O}{Binary indicator of if this stop/station services orange line}
   \item{Location}{Latitude and longitude of the station}
-  \item{Historical.Wards.2003.2015}{}
-  \item{Zip.Codes}{}
-  \item{Community.Areas}{}
-  \item{Census.Tracts}{}
-  \item{Wards}{}
+  \item{Historical.Wards.2003.2015}{Historical ward number this stop/station was geographically located in before ward redistricting}
+  \item{Zip.Codes}{Zip code of the stop/station}
+  \item{Community.Areas}{Community area/neighborhood of the station. https://en.wikipedia.org/wiki/Community_areas_in_Chicago}
+  \item{Census.Tracts}{Census track}
+  \item{Wards}{Current ward thee stop/station is geographically located in}
   ...
 }}
 \source{
